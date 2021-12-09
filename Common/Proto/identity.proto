@@ -1,0 +1,122 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "IdentityService";
+
+import "google/protobuf/timestamp.proto";
+
+service GrpcIdentity {
+  rpc Register(RegisterRequest) returns (RegisterResponse) {}
+  rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse) {}
+  rpc Login(LoginRequest) returns (AuthenticatedUser) {}
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse) {}
+  rpc VerifyPassword(VerifyPasswordRequest) returns (VerifyPasswordResponse) {}
+  rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse) {}
+  rpc ChangePhone(ChangePhoneRequest) returns (ChangePhoneResponse) {}
+  rpc VerifyPhone(VerifyPhoneRequest) returns (VerifyPhoneResponse) {}
+}
+message GrpcUser {
+  string userName = 1;
+  string email = 2;
+  string phoneNumber = 5;
+  string Gender = 6;
+  google.protobuf.Timestamp DateOfBirth = 7;
+}
+
+message RegisterRequest {
+  string userName = 1;
+  string email = 2;
+  string password = 3;
+  string confirmedPassword = 4;
+  string phoneNumber = 5;
+  string Gender = 6;
+  google.protobuf.Timestamp DateOfBirth = 7;
+}
+
+message RegisterResponse {
+  string id = 1;
+}
+
+
+message VerifyEmailRequest {
+  string email = 1;
+  string token = 2;
+}
+
+message VerifyEmailResponse {
+  string id = 1;
+}
+
+
+message LoginRequest {
+  string emailOrUserName = 1;
+  string password = 2;
+}
+
+message AuthenticatedUser {
+  GrpcUser user = 1;
+  string token = 2;
+}
+
+
+message LogoutRequest {
+  string email = 1;
+}
+
+message LogoutResponse {
+  string id = 1;
+}
+
+
+message ResetPasswordRequest {
+  string usernameOrEmail = 1;
+}
+
+message ResetPasswordResponse {
+  string id = 1;
+}
+
+
+message VerifyPasswordRequest {
+  string email = 1;
+  string password = 2;
+  string passwordConfirmed = 3;
+  string Token = 4;
+}
+
+message VerifyPasswordResponse {
+  string id = 1;
+}
+
+
+message ChangePasswordRequest {
+  string email = 1;
+  string oldPassword = 2;
+  string newPassword = 3;
+  string passwordConfirmed = 4;
+}
+
+message ChangePasswordResponse {
+  string id = 1;
+}
+
+
+message ChangePhoneRequest {
+  string email = 1;
+  string phone = 2;
+}
+
+message ChangePhoneResponse {
+  string id = 1;
+}
+
+
+message VerifyPhoneRequest {
+  string email = 1;
+  string phone = 2;
+  string verifyToken = 3;
+}
+
+message VerifyPhoneResponse {
+  string id = 1;
+}

@@ -1,0 +1,29 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "UsersService";
+
+import "google/protobuf/timestamp.proto";
+
+service GrpcUsers {
+  rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+  rpc AddToRole(RoleRequest) returns (RoleResponse) {}
+  rpc RemoveFromRole(RoleRequest) returns (RoleResponse) {}
+}
+
+message DeleteRequest {
+  string id = 1;
+}
+
+message DeleteResponse {
+  string id = 1;
+}
+
+
+message RoleRequest {
+  string userId = 1;
+  string roleId = 2;
+}
+
+message RoleResponse {
+  string id = 1;
+}

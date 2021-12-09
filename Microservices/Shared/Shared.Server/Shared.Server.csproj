@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="EasyNetQ" Version="6.3.1" />
+        <PackageReference Include="Google.Protobuf" Version="3.19.1" />
+        <PackageReference Include="Grpc.AspNetCore.Server" Version="2.41.0" />
+        <PackageReference Include="Grpc.AspNetCore.Web" Version="2.41.0" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Identity\Identity.Data\Identity.Data.csproj" />
+        <ProjectReference Include="..\Shared.Services.Implementation\Shared.Services.Implementation.csproj" />
+    </ItemGroup>
+
+</Project>

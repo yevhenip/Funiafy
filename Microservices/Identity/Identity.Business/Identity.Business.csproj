@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Shared\Shared.Services.Implementation\Shared.Services.Implementation.csproj"/>
+        <ProjectReference Include="..\Identity.Data\Identity.Data.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0"/>
+    </ItemGroup>
+
+</Project>
